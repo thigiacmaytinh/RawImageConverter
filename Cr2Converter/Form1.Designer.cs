@@ -48,20 +48,24 @@
             this.label1 = new System.Windows.Forms.Label();
             this.numHeight = new System.Windows.Forms.NumericUpDown();
             this.numWidth = new System.Windows.Forms.NumericUpDown();
+            this.rdJpg = new System.Windows.Forms.RadioButton();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.rdPng = new System.Windows.Forms.RadioButton();
             this.statusStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numWidth)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnExtractJPG
             // 
-            this.btnExtractJPG.Location = new System.Drawing.Point(447, 92);
+            this.btnExtractJPG.Location = new System.Drawing.Point(528, 41);
             this.btnExtractJPG.Name = "btnExtractJPG";
-            this.btnExtractJPG.Size = new System.Drawing.Size(120, 39);
+            this.btnExtractJPG.Size = new System.Drawing.Size(104, 39);
             this.btnExtractJPG.TabIndex = 5;
-            this.btnExtractJPG.Text = "Extract jpg from CR2";
+            this.btnExtractJPG.Text = "Extract from CR2";
             this.btnExtractJPG.UseVisualStyleBackColor = true;
             this.btnExtractJPG.Click += new System.EventHandler(this.buttonExtractJPG_Click);
             // 
@@ -109,10 +113,9 @@
             this.lstCr2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
-            this.lstCr2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lstCr2.Location = new System.Drawing.Point(0, 170);
+            this.lstCr2.Location = new System.Drawing.Point(0, 201);
             this.lstCr2.Name = "lstCr2";
-            this.lstCr2.Size = new System.Drawing.Size(644, 272);
+            this.lstCr2.Size = new System.Drawing.Size(644, 241);
             this.lstCr2.TabIndex = 14;
             this.lstCr2.UseCompatibleStateImageBehavior = false;
             this.lstCr2.View = System.Windows.Forms.View.Details;
@@ -183,7 +186,7 @@
             this.groupBox1.Controls.Add(this.numWidth);
             this.groupBox1.Location = new System.Drawing.Point(218, 38);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 114);
+            this.groupBox1.Size = new System.Drawing.Size(172, 114);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Resize to";
@@ -257,12 +260,48 @@
             this.numWidth.TabIndex = 0;
             this.numWidth.ValueChanged += new System.EventHandler(this.numWidth_ValueChanged);
             // 
+            // rdJpg
+            // 
+            this.rdJpg.AutoSize = true;
+            this.rdJpg.Checked = true;
+            this.rdJpg.Location = new System.Drawing.Point(11, 26);
+            this.rdJpg.Name = "rdJpg";
+            this.rdJpg.Size = new System.Drawing.Size(85, 17);
+            this.rdJpg.TabIndex = 18;
+            this.rdJpg.TabStop = true;
+            this.rdJpg.Text = "Save to JPG";
+            this.rdJpg.UseVisualStyleBackColor = true;
+            this.rdJpg.CheckedChanged += new System.EventHandler(this.rdJpg_CheckedChanged);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.rdPng);
+            this.groupBox3.Controls.Add(this.rdJpg);
+            this.groupBox3.Location = new System.Drawing.Point(396, 38);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(114, 114);
+            this.groupBox3.TabIndex = 18;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Resize to";
+            // 
+            // rdPng
+            // 
+            this.rdPng.AutoSize = true;
+            this.rdPng.Location = new System.Drawing.Point(11, 53);
+            this.rdPng.Name = "rdPng";
+            this.rdPng.Size = new System.Drawing.Size(88, 17);
+            this.rdPng.TabIndex = 19;
+            this.rdPng.Text = "Save to PNG";
+            this.rdPng.UseVisualStyleBackColor = true;
+            this.rdPng.CheckedChanged += new System.EventHandler(this.rdPng_CheckedChanged);
+            // 
             // Form1
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(644, 464);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.lstCr2);
@@ -284,6 +323,8 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numHeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numWidth)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -310,6 +351,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox chkResize;
         private System.Windows.Forms.CheckBox chkKeepAspect;
+        private System.Windows.Forms.RadioButton rdJpg;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.RadioButton rdPng;
     }
 }
 

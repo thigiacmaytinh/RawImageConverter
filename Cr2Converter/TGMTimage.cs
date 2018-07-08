@@ -117,14 +117,7 @@ namespace TGMTcs
 
                     bmp = result;
                 }
-
-
-                //compress
-                EncoderParameters ep = new EncoderParameters(1);
-                ep.Param[0] = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, 90L);
-                if (m_codecJpeg == null)
-                    m_codecJpeg = GetJpegCodec();
-                                
+                               
 
                 //rotate
                 if (rotateIfNeeded)
@@ -135,8 +128,17 @@ namespace TGMTcs
                         bmp.RotateFlip(RotateFlipType.Rotate90FlipNone);
                 }
 
-                //save
-                bmp.Save(outputPath, m_codecJpeg, ep);
+                string ext = outputPath.Substring(outputPath.Length - 3);
+                if(ext == "jpg")
+                {
+                    //save jpg
+                    bmp.Save(outputPath, ImageFormat.Jpeg);
+                }
+                else
+                {
+                    //save png
+                    bmp.Save(outputPath, ImageFormat.Png);
+                }                
             }
 
             fi.Close();

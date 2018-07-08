@@ -16,6 +16,10 @@ namespace Cr2Converter
 {
     public partial class Form1 : Form
     {
+        string m_ext = ".jpg";
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+
         public Form1()
         {
             InitializeComponent();
@@ -77,7 +81,7 @@ namespace Cr2Converter
                     string baseName = Path.GetFileNameWithoutExtension(filePath);
                     string outDir = Path.GetDirectoryName(filePath) + "\\";
                     baseName = outDir + baseName;
-                    string jpgName = baseName + ".jpg";
+                    string jpgName = baseName + m_ext;
 
                     if (!chkOverwrite.Checked && File.Exists(jpgName))
                     {
@@ -85,7 +89,7 @@ namespace Cr2Converter
 
                         do
                         {
-                            jpgName = String.Format("{0}_{1}.jpg", baseName, version);
+                            jpgName = String.Format("{0}_{1}" + m_ext, baseName, version);
                             ++version;
                         }
                         while (File.Exists(jpgName));
@@ -279,6 +283,20 @@ namespace Cr2Converter
         private void numHeight_ValueChanged(object sender, EventArgs e)
         {
             TGMTregistry.GetInstance().SaveRegValue("numHeight", numHeight.Value);
+        }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        private void rdJpg_CheckedChanged(object sender, EventArgs e)
+        {
+            m_ext = ".jpg";
+        }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        private void rdPng_CheckedChanged(object sender, EventArgs e)
+        {
+            m_ext = ".png";
         }
     }
 }
